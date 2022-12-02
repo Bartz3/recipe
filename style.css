@@ -1,6 +1,7 @@
 #recipeName{
     border-top: solid 3px black;
     border-bottom: solid 3px black;
+    margin-top: 3px;
 }
 #recipeView{
     display: block;
@@ -14,12 +15,12 @@
     
 }
 
-.recipeAdd label{
+#recipeAdd label{
     display: inline-block;
     width: 80px;
     margin-bottom: 10px;
 }
-.recipeAdd{
+#recipeAdd{
     display: block;
     margin-left: auto;
     margin-right: auto;
