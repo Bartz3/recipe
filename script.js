@@ -45,20 +45,26 @@ function printProducts() {
 		newSumCell.textContent = parseFloat(productsArray[i].amount * productsArray[i].price).toFixed(2) + ' zł'
 
 		newDeleteButton.textContent = 'Usuń'
+		newDeleteButton.style.marginRight="8px"
+		newDeleteButton.style.marginTop="10px"
+		
 		newDeleteButton.onclick = function () {
 			deleteProduct(productsArray, i)
 		}
 		newEditButton.textContent = 'Edytuj'
+		newEditButton.style.marginRight="8px"
 		newEditButton.onclick = function () {
 			displaySelectedRow(productsArray[i])
 			editedElement = i
 		}
 
 		newUppButton.textContent = 'Góra'
+		newUppButton.style.marginRight="8px"
 		newUppButton.onclick = function () {
 			moveElemet(productsArray, i, 1)
 		}
 		newDownButton.textContent = 'Dół'
+		newDownButton.style.marginRight="8px"
 		newDownButton.onclick = function () {
 			moveElemet(productsArray, i, 0)
 		}
@@ -76,8 +82,8 @@ function printProducts() {
 		} else if (i === productsArray.length - 1) {
 			newRow.append(newUppButton)
 		} else {
-			newRow.append(newUppButton)
 			newRow.append(newDownButton)
+			newRow.append(newUppButton)
 		}
 
 		newTableBody.appendChild(newRow)
@@ -125,7 +131,7 @@ function deleteProduct(productsArray, delElementIndex) {
 		printProducts()
 		alert('Produkt został usunięty.')
 	} else {
-		//alert("Produkt nie został usunięty.")
+		alert("Produkt nie został usunięty.")
 	}
 }
 
@@ -146,7 +152,7 @@ function editElement() {
 		editPrice.value = ''
 		editedElement = -1
 	} else {
-		alert('Wprowadź potrzebne dane! 1 ')
+		alert('Wprowadź potrzebne dane!')
 	}
 }
 
@@ -167,5 +173,5 @@ function moveElemet(productsArray, editElementIndex, buttonVar) {
 }
 
 loadData()
-addBtn.addEventListener('click', addProduct)
+addBtn.addEventListener('click', addProduct) // .
 editBtn.addEventListener('click', editElement)
