@@ -112,9 +112,14 @@ function loadData() {
 function addProduct() {
 	if (inputName.value != '' && inputAmount.value != '' && inputPrice.value != '') {
 		const product = new Product(inputName.value, inputAmount.value, inputPrice.value)
-		productsArray.push(product)
-		localStorage.setItem('data', JSON.stringify(productsArray))
-		printProducts()
+		if(inputAmount.value!=0 && inputPrice.value!=0){
+			productsArray.push(product)
+			localStorage.setItem('data', JSON.stringify(productsArray))
+			printProducts()
+		}else{
+			alert('Wprowadź poprawne dane!')
+		}
+
 		inputName.value = ''
 		inputAmount.value = ''
 		inputPrice.value = ''
@@ -144,13 +149,18 @@ function displaySelectedRow(editElement) {
 function editElement() {
 	if (editName.value != '' && editAmount.value != '' && editPrice.value != '' && editedElement !== -1) {
 		const editedProduct = new Product(editName.value, editAmount.value, editPrice.value)
-		productsArray.splice(editedElement, 1, editedProduct)
-		localStorage.setItem('data', JSON.stringify(productsArray))
-		printProducts()
-		editName.value = ''
-		editAmount.value = ''
-		editPrice.value = ''
-		editedElement = -1
+		if(editAmount.value!=0 && editPrice.value!=0){
+			productsArray.splice(editedElement, 1, editedProduct)
+			localStorage.setItem('data', JSON.stringify(productsArray))
+			printProducts()
+			editName.value = ''
+			editAmount.value = ''
+			editPrice.value = ''
+			editedElement = -1
+		}else{
+			alert('Wprowadź poprawne dane!')
+		}
+
 	} else {
 		alert('Wprowadź potrzebne dane!')
 	}
